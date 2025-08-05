@@ -30,8 +30,8 @@ SELECT order_id from 'order' WHERE account_id = 34;
 -- 10.In the order table, which account_ids were responsible for orders between order_id 29540 and order_id 29560 (inclusive)?
 SELECT DISTINCT account_id from 'order' where order_id BETWEEN 29540 and 29560;
 
---11. In the order table, what are the individual amounts that were sent to (account_to) id 30067122?
-SELECT account_id FROM `order`WHERE order_id BETWEEN 29540 AND 29560;
+--11. In the order table, what are the individual amounts that were sent to (account_to) id 30067122? mhf
+SELECT sum(amount) FROM `order`WHERE account_to = 30067122;
 
 --12. In the trans table, show the trans_id, date, type and amount of the 10 first transactions from account_id 793 in chronological order, from newest to oldest.
 SELECT trans_id, date, type, amount from trans WHERE account_id = 793 ORDER BY date DESC LIMIT 10;
