@@ -10,7 +10,7 @@ SELECT amount FROM loan ORDER BY amount ASC limit 3;
 -- 4.What are the possible values for status, ordered alphabetically in ascending order in the loan table?
 SELECT DISTINCT status from loan ORDER BY status ASC;
 -- 5.What is the loan_id of the highest payment received in the loan table?
-SELECT loan_id FROM loan WHERE amount = (SELECT max(amount) FROM loan); 
+SELECT loan_id FROM loan ORDER BY payments DESC LIMIT 1; 'WHERE amount = (SELECT max(amount) FROM loan); '
 
 -- 6. What is the loan amount of the lowest 5 account_ids in the loan table? Show the account_id and the corresponding amount
 SELECT amount , account_id FROM loan ORDER BY account_id ASC LIMIT 5;
@@ -31,7 +31,7 @@ SELECT order_id from 'order' WHERE account_id = 34;
 SELECT DISTINCT account_id from 'order' where order_id BETWEEN 29540 and 29560;
 
 --11. In the order table, what are the individual amounts that were sent to (account_to) id 30067122?
-SELECT amount FROM 'order' WHERE account_id = 30067122;
+SELECT account_id FROM `order`WHERE order_id BETWEEN 29540 AND 29560;
 
 --12. In the trans table, show the trans_id, date, type and amount of the 10 first transactions from account_id 793 in chronological order, from newest to oldest.
 SELECT trans_id, date, type, amount from trans WHERE account_id = 793 ORDER BY date DESC LIMIT 10;
